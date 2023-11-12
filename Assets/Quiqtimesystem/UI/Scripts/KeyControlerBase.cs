@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class KeyControlerBase : MonoBehaviour
 {
-    public abstract void SetKeyCode();
-    public abstract void SetState();
+    public abstract void SetKeyCode(KeyCode keyCode);
+    public abstract void SetState(string action);
 }

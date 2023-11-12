@@ -17,7 +17,6 @@ public class KeyUiControler : MonoBehaviour
         InitilizeKeys();
     }
 
-
     public void SetKey(KeyTypeCode keyTypeCode)
     {
         GameObject keyObject = keys[keyTypeCode];
