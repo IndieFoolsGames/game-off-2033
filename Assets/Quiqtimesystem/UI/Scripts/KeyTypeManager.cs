@@ -4,18 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
-public class KeyUiControler : MonoBehaviour
+public class KeyTypeManager : MonoBehaviour
 {
-    public Transform keyContainer;
-
     public event UnityAction<GameObject> onKeyChanged;
-
     private Dictionary<KeyTypeCode,GameObject> keys = new Dictionary<KeyTypeCode,GameObject>();
-
-    private void Start()
-    {
-        InitilizeKeys();
-    }
 
     public void SetKey(KeyTypeCode keyTypeCode)
     {
@@ -28,18 +20,5 @@ public class KeyUiControler : MonoBehaviour
     {
         if (onKeyChanged != null)
             onKeyChanged(keyObject);
-    }
-
-    private void InitilizeKeys() 
-    {
-        for (int i = 0; i < keyContainer.childCount; i++)
-        {
-            KeyTypeInfo key = keyContainer.GetChild(i).GetComponent<KeyTypeInfo>();
-
-            if(key != null)
-            {
-                keys.Add(key.keyType,key.gameObject);
-            }
-        }
     }
 }

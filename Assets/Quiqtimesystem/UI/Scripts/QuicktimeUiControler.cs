@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class QuicktimeUiControler : MonoBehaviour
 {
-    public Key key;
-    public KeyUiControler uiControler;
+    public KeyUiControlGeter key;
+    public KeyTypeManager keyTypeUiControler;
 
     public void SetKey(KeyTypeCode keyType, string action, KeyCode keyCode)
     {
-        uiControler.SetKey(keyType);
+        keyTypeUiControler.SetKey(keyType);
         key.KeyControler.SetKeyCode(keyCode);
         key.KeyControler.SetState(action);
     }

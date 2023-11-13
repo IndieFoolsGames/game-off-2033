@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class KeyUiControlGeter : MonoBehaviour
 {
-    public KeyUiControler keyManager;
+    public KeyTypeManager keyManager;
+    private KeyBehaviorControlerBase keyControler;
 
-    private KeyControlerBase keyControler;
-    public KeyControlerBase KeyControler
+    public KeyBehaviorControlerBase KeyControler
     {
         get
         {
@@ -24,6 +24,15 @@ public class Key : MonoBehaviour
         }
     }
 
+    private KeyCodeUiControlerBase keyCodeControler;
+    public KeyCodeUiControlerBase KeyCodeControler
+    {
+        get
+        {
+            return keyCodeControler;
+        }
+    }
+
     private void Start()
     {
         if (keyManager != null)
@@ -32,14 +41,21 @@ public class Key : MonoBehaviour
 
     private void UpdateValues(GameObject gameObject)
     {
-        KeyControlerBase keyControler = gameObject.GetComponent<KeyControlerBase>();
+        KeyBehaviorControlerBase keyControler = gameObject.GetComponent<KeyBehaviorControlerBase>();
 
         if(keyControler != null)
             this.keyControler = keyControler;
+
+        KeyCodeUiControlerBase keyCodeUi = gameObject.GetComponent<KeyCodeUiControlerBase>();
+
+        if (keyCodeUi != null)
+            this.keyCodeControler = keyCodeUi;
 
         FillControler fillControler = gameObject.GetComponent<FillControler>();
 
         if(fillControler != null)
             this.fillControler = fillControler;
     }
+
+
 }

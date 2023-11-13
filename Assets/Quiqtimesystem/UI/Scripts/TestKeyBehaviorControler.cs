@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestKeyControler : KeyControlerBase
+public class TestKeyBehaviorControler : KeyBehaviorControlerBase
 {
     public override void SetKeyCode(KeyCode keyCode)
     {

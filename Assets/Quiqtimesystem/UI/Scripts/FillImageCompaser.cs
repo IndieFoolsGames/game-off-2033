@@ -6,5 +6,5 @@ using UnityEngine.UI;
 public class FillImageCompaser : MonoBehaviour
 {
     public Image fillImage; 
-    KeyUiControler keyManager;
+    KeyTypeManager keyManager;
 }
