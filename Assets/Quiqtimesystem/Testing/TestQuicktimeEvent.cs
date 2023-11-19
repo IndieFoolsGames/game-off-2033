@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class TestQuicktimeEvent : QuicktimeEventBase
 {
+    private void Update()
+    {
+
+    }
+
     public override IEnumerator OnQuicktimeEventStart()
-    {      
-       yield return null;
-       EndQuicktimeEvent();
+    {
+
+        keyControler.SetKeyAction("action");
+        yield return null;
+        EndQuicktimeEvent();
     }
 }

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public abstract class QuicktimeEventBase : MonoBehaviour
 {
-    public QuicktimeUiControler quicktimeUiControler;
-    public QuicktimeControler quicktimeControler;
+    public KeyControler keyControler;
+    [SerializeField]
+    private QuicktimeEventControler quicktimeControler;
 
     public void StartQuicktimeEvent()
     {
+        if (quicktimeControler == null)
+            return;
+
         StartCoroutine(OnQuicktimeEventStart());
         quicktimeControler.OnQuicktimeEventStarts();
     }

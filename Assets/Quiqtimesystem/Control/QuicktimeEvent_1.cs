@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class QuicktimeControler : MonoBehaviour
+public class QuicktimeEventControler : MonoBehaviour
 {
     public UnityEvent onQuicktimeEventStarts = new UnityEvent();
     public UnityEvent onQuicktimeEventEnds = new UnityEvent();
+
 
     public void OnQuicktimeEventStarts()
     {
@@ -17,4 +18,7 @@ public class QuicktimeControler : MonoBehaviour
     {
         onQuicktimeEventEnds.Invoke();
     }
+
+
+
 }

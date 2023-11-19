@@ -52,10 +52,12 @@ public class AudioManager : MonoBehaviour
 
         AudioSource audioSource = soundContainer.AddComponent<AudioSource>();
         soundContainer.AddComponent<SoundControler>();
+        /*
         DestroyOnTime destroy = soundContainer.AddComponent<DestroyOnTime>();
 
         audioSource.clip = clip;
         destroy.destroyTime = clip.length;
+        */
     }
 
     public void StoppPlay(SoundGroupOld soundGroup, string soundName)
