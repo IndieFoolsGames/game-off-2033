@@ -13,36 +13,48 @@ public class KeyControler : MonoBehaviour
     private KeyAnimationControler animationControler;
     [SerializeField]
     private FillControler fillControler;
+    [SerializeField]
+    private QuicktimeEventControler quicktimeControler;
 
-
-
-    public void SetKey(KeyTypeCode keyTypeCode,KeyCode key,string actionId)
+    private void Start()
     {
-        ResetFill();
-        keyManager.SetKey(keyTypeCode);
-        SetKeyCode(key);
-        SetKeyAction(actionId);
+        if(quicktimeControler != null) 
+        {
+            quicktimeControler.onQuicktimeEventEnds.AddListener(ResetFill);          
+        }
+    }
+
+    public void SetKey(KeyTypeCode keyTypeCode, KeyCode key, string actionId)
+    {
+        if (quicktimeControler.Active)
+        {           
+            keyManager.SetKey(keyTypeCode);
+            SetKeyCode(key);
+            SetKeyAction(actionId);
+        }
     }
 
     public void SetKeyAction(string actionId)
     {
-
-        animationControler.SetKeyAnimation(actionId);
+        if (quicktimeControler.Active)       
+            animationControler.SetKeyAnimation(actionId);
     }
 
     public void SetKeyCode(KeyCode keyCode) 
     {
-
-        keyUiControl.SetKey(keyCode);
+        if (quicktimeControler.Active)       
+            keyUiControl.SetKey(keyCode);
     }
 
     public void SetFill(float fill)
-    {
-        fillControler.SetTargetFill(fill);
+    {       
+        if (quicktimeControler.Active)       
+            fillControler.SetTargetFill(fill);
     }
 
     public void ResetFill()
     {
-        fillControler.ResetFill();
+        if (quicktimeControler.Active)          
+            fillControler.ResetFill();
     }
 }

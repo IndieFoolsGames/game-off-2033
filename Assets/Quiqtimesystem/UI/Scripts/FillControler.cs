@@ -13,10 +13,16 @@ public class FillControler : MonoBehaviour
 
     private float targetFillState = 0;
 
+    public float TargetFillState
+    {
+        get { return targetFillState; } 
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        if (fillImage != null && targetFillState == 0 || targetFillState == fillImage.fillAmount)
+        if (fillImage == null || targetFillState == 0 || targetFillState == fillImage.fillAmount)
             return;
 
         float fill = Math.Clamp(fillSped * Time.deltaTime, 0, targetFillState);

@@ -10,8 +10,6 @@ public class KeyManager : MonoBehaviour
 
     private KeyData1 curentKey;
 
-    
-
     public event UnityAction<KeyData1> onKeyHasChanged;
 
     public void SetKey(KeyTypeCode keyTypeCode)

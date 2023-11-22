@@ -9,4 +9,5 @@ public class KeyData1 : MonoBehaviour
     public Animator keyAnimator;
     public Image fillImage;
     public KeyCodeUiControlerBase uiControler;
+    public UIElement Ui;
 }

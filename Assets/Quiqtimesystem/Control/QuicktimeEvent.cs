@@ -11,16 +11,13 @@ public abstract class QuicktimeEventBase : MonoBehaviour
     public void StartQuicktimeEvent()
     {
         if (quicktimeControler == null)
-            return;
-
-        StartCoroutine(OnQuicktimeEventStart());
-        quicktimeControler.OnQuicktimeEventStarts();
+            return;       
+        quicktimeControler.StartQuicktimeEvent(this);
     }
 
     public void EndQuicktimeEvent()
     {
-        StopCoroutine(OnQuicktimeEventStart());
-        quicktimeControler.OnQuicktimeEventEnds();
+        quicktimeControler.EndQuicktimeEvent();
     }
 
     public abstract IEnumerator OnQuicktimeEventStart();
